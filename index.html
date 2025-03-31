@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>webGL Pavia</title>
+    </head>
+    <body onload="InitWebGL();">
+        <canvas id="webgl" width="800px" height="600px">
+            WebGl not supported!
+        </canvas>
+        <textarea id="vs" spellcheck="false">
+precision mediump float;
+attribute vec3 Pos;
+attribute vec3 Color;
+varying vec3 vertexColor;
+void main()
+{
+    gl_Position = vec4(Pos, 1.0);
+    vertexColor = Color;
+}
+        </textarea>
+        <textarea id="fs" spellcheck="false">
+precision mediump float;
+varying vec3 vertexColor;
+void main()
+{
+    gl_FragColor = vec4(vertexColor, 1.0);
+}
+        </textarea>
+
+        <script src="js/webGL.js" defer></script>
+    </body>
+</html>
